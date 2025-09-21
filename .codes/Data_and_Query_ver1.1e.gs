@@ -3,12 +3,13 @@
 // =======================
 function onOpen() {
   const ui = SpreadsheetApp.getUi();
+  const version = "1.1"
   ui.createMenu("🔑 API Key Tools")
     .addItem("Reset API Key Now", "manualResetApiKey")
     .addItem("Refresh Status Panel", "updateStatusPanel")
     .addSeparator()
     .addItem("Re-initialize Setup", "firstTimeUserSetup") // optional, safe to rerun
-    .addItem("Data & Query 1.1 release","initializeDashboard")
+    .addItem("Data & Query " + version + " release","initializeDashboard")
     .addToUi();
 
   initializeDashboard();
