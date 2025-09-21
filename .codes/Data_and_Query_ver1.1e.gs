@@ -2,8 +2,10 @@
 // ON OPEN MENU
 // =======================
 function onOpen() {
-  const ui = SpreadsheetApp.getUi();
   const version = "1.1"
+  
+  const ui = SpreadsheetApp.getUi();
+
   ui.createMenu("🔑 API Key Tools")
     .addItem("Reset API Key Now", "manualResetApiKey")
     .addItem("Refresh Status Panel", "updateStatusPanel")
