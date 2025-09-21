@@ -2,8 +2,9 @@
 // ON OPEN MENU
 // =======================
 function onOpen() {
-  const version = "1.1"
-  
+  PropertiesService.getScriptProperties().setProperty("VER_NO", "1.1");
+  const version = PropertiesService.getScriptProperties().getProperty("VER_NO");
+
   const ui = SpreadsheetApp.getUi();
 
   ui.createMenu("🔑 API Key Tools")
@@ -485,12 +486,14 @@ function updateStatusPanel() {
 // =======================
 function insertWelcomeNote() {
   const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName("Settings");
+  const version = PropertiesService.getScriptProperties().getProperty("VER_NO");
+
 
   // Merge A1:B5 for the welcome note
   const range = sheet.getRange("A1:B5");
   range.merge();
   range.setValue(
-    "📌 Welcome! Mobile/Desktop Instructions: Data&Query 1.1 \n\n" +
+    "📌 Welcome! Mobile/Desktop Instructions: Data&Query " + version \n\n" +
     "1️⃣ Enter your API Key in B7 → will appear in B6.\n" +
     "2️⃣ Enter your FETCH URL in B9 → will appear in B8.\n" +
     "3️⃣ Enter your Selected AI Model in B11 → will appear in B10.\n" +
